@@ -314,7 +314,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
-            LoginForm lf = new LoginForm();
+            LoginStudentForm lf = new LoginStudentForm();
             lf.setVisible(true);
             this.dispose();
 
@@ -351,7 +351,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ChangePasswd cpasswd = new ChangePasswd(this, rootPaneCheckingEnabled);
+        ChangeStudentPassword cpasswd = new ChangeStudentPassword(this, rootPaneCheckingEnabled);
         cpasswd.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 

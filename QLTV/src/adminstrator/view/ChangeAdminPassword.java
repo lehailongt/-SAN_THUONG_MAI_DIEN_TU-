@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author DELL
  */
-public class ChangePasswd extends javax.swing.JDialog {
+public class ChangeAdminPassword extends javax.swing.JDialog {
 
     private final HomeForm hf;
     private final Employee emp;
@@ -22,7 +22,7 @@ public class ChangePasswd extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public ChangePasswd(javax.swing.JFrame parent, boolean modal) {
+    public ChangeAdminPassword(javax.swing.JFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -154,19 +154,20 @@ public class ChangePasswd extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeAdminPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeAdminPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeAdminPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeAdminPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(() -> {
-            ChangePasswd dialog = new ChangePasswd(new javax.swing.JFrame(), true);
+            ChangeAdminPassword dialog = new ChangeAdminPassword(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {

@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/Login/HomeLoginForm.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/user/LoginStudentForm.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/user/ForgetStudentPassword.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/user/BorrowBooks.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/adminstrator/view/ChangeAdminPassword.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/student/model/Student.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/adminstrator/view/LoginAdminForm.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/adminstrator/model/Employee.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/student/controller/DataStudentFunctionImp.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/student/model/Person.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/adminstrator/view/HomeForm.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/adminstrator/view/AdminRegisterForm.java</file>
+            <file>file:/C:/Users/lehailongt/Downloads/manage-library-java-swing-main/QLTV/src/student/controller/DataStudentFunction.java</file>
+        </group>
     </open-files>
 </project-private>

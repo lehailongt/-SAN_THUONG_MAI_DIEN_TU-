@@ -5,7 +5,7 @@
 package Login;
 
 import adminstrator.view.LoginAdminForm;
-import user.LoginForm;
+import user.LoginStudentForm;
 
 /**
  *
@@ -48,6 +48,7 @@ public class HomeLoginForm extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Chào Mừng Đến Với Thư Viện PTIT");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 560, -1));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
@@ -83,7 +84,7 @@ public class HomeLoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        LoginForm lf = new LoginForm();
+        LoginStudentForm lf = new LoginStudentForm();
         lf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

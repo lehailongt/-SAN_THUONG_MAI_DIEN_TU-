@@ -14,12 +14,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import student.model.InValidEmailException;
+import student.model.InValidPhoneException;
 
-public class DataStudentFuctionImp implements DataStudentFunction {
+public class DataStudentFunctionImp implements DataStudentFunction {
     
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     public databaseConnection dbcon = new databaseConnection();
     public MysqlDataSource data = dbcon.ketNoiSQL();
+    
+    public DataStudentFunctionImp(){};
     
     @Override
     public void readStudentSQL(ArrayList<Student> listst) {
@@ -112,6 +116,36 @@ public class DataStudentFuctionImp implements DataStudentFunction {
             ex.printStackTrace();
         }
         return -1;
+    }
+    
+    @Override
+    public Student getStudentByID(String studentID) {
+        try ( Connection conn = data.getConnection() ) {
+            String sql = "SELECT * FROM student WHERE studentId = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, studentID);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Student s = new Student();
+                s.setStudentId(rs.getString("studentId"));
+                s.setName(rs.getString("nameS"));
+                s.setGender(rs.getString("gender"));
+                s.setDob(rs.getDate("birthdayS"));
+                s.setAddress(rs.getString("address"));
+                s.setClassRoon(rs.getString("class"));
+                s.setAddress(rs.getString("address"));
+                s.setMajor(rs.getString("marjor"));
+                s.setPhone(rs.getString("phone"));
+                s.setEmail(rs.getString("mail"));
+                s.setPassword(rs.getString("passwd"));
+                return s;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (InValidEmailException | InValidPhoneException ex) {
+            System.getLogger(DataStudentFunctionImp.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+        return null; // nếu không tìm thấy hoặc có lỗi
     }
     
     @Override

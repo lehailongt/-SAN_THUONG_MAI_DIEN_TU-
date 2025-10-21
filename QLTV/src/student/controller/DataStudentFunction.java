@@ -20,6 +20,8 @@ public interface DataStudentFunction {
     int updateStudent(Student s);
 
     int delStudent(Student s);
+    
+    Student getStudentByID(String studentID);
 
     ArrayList<Student> searchByName(ArrayList<Student> listStudent, String nameStudent);
 

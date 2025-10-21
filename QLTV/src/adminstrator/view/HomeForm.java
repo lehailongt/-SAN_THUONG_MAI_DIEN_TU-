@@ -186,7 +186,7 @@ public class HomeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        ChangePasswd cp = new ChangePasswd(this, rootPaneCheckingEnabled);
+        ChangeAdminPassword cp = new ChangeAdminPassword(this, rootPaneCheckingEnabled);
         cp.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

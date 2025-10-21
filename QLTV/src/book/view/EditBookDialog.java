@@ -118,6 +118,11 @@ public class EditBookDialog extends javax.swing.JDialog {
 
         comboboxCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         comboboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Công Nghệ Thông  Tin", "An Toàn Thông Tin", "Điện Tử Viễn Thông", "Đại Cương" }));
+        comboboxCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxCategoryActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Tác giả:");
@@ -267,6 +272,10 @@ public class EditBookDialog extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(rootPane, "bạn đã hủy!");
         this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void comboboxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboboxCategoryActionPerformed
 
     /**
      * @param args the command line arguments

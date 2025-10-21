@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 import registerbook.controller.DataRegisterBookimp;
 import registerbook.model.OutOfDate;
 import registerbook.model.RegisterBook;
-import student.controller.DataStudentFuctionImp;
+import student.controller.DataStudentFunctionImp;
 import student.model.Student;
 
 /**
@@ -992,7 +992,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
     private void addReadSQL() {
         DataFuctionImplement dfbook = new DataFuctionImplement();
         dfbook.readBookSQL(listB);
-        DataStudentFuctionImp dfStudent = new DataStudentFuctionImp();
+        DataStudentFunctionImp dfStudent = new DataStudentFunctionImp();
         dfStudent.readStudentSQL(listSt);
         drb.readRegisterBookSQL(listRb);
 

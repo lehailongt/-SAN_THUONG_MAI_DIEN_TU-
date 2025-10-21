@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import student.controller.DataStudentFuctionImp;
+import student.controller.DataStudentFunctionImp;
 import student.model.InValidEmailException;
 import student.model.InValidPhoneException;
 import student.model.Student;
@@ -33,7 +33,7 @@ public class StudentForm extends javax.swing.JFrame {
     private ArrayList<Student> listStudent;
     private int stt;
     public int edit;
-    private DataStudentFuctionImp dataImplement;
+    private DataStudentFunctionImp dataImplement;
     private DefaultTableModel tableModel;
     private Employee emp;
 
@@ -44,7 +44,7 @@ public class StudentForm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         edit = -1;
-        dataImplement = new DataStudentFuctionImp();
+        dataImplement = new DataStudentFunctionImp();
         addGroup();
         listStudent = new ArrayList<>();
         tableModel = (DefaultTableModel) tbStudent.getModel();

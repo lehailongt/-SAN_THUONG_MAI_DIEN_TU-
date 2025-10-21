@@ -7,15 +7,14 @@ package user;
 import Login.HomeLoginForm;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import student.controller.DataStudentFuctionImp;
-import student.controller.DataStudentFunction;
+import student.controller.DataStudentFunctionImp;
 import student.model.Student;
 
 /**
  *
  * @author DELL
  */
-public class LoginForm extends javax.swing.JFrame {
+public class LoginStudentForm extends javax.swing.JFrame {
     private Student st;
     private final ArrayList<Student> listST;
     
@@ -23,7 +22,7 @@ public class LoginForm extends javax.swing.JFrame {
     /**
      * Creates new form LoginForm
      */
-    public LoginForm() {
+    public LoginStudentForm() {
         initComponents();
         setLocationRelativeTo(null);
         listST = new ArrayList<>();
@@ -78,7 +77,7 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 351, 150, 40));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Đăng Ký");
+        jButton2.setText("Quên Mật Khẩu");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,18 +113,15 @@ public class LoginForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String studentId = txtStudent.getText();
         String passwd = new String(txtpasswd.getPassword());
-      st = new Student(studentId, passwd);
-      st = checkStudentId(st);
-      if(st != null){
-          InForStudentRegister inforStRg = new InForStudentRegister(st);
-          inforStRg.setVisible(true);
-          this.dispose();
-          
-      
-      }else{
-         JOptionPane.showMessageDialog(rootPane, "tài khoản và mật khẩu không đúng!");
-      
-      }
+        st = new Student(studentId, passwd);
+        st = checkStudentId(st);
+        if(st != null){
+            InForStudentRegister inforStRg = new InForStudentRegister(st);
+            inforStRg.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "tài khoản và mật khẩu không đúng!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -135,7 +131,8 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      JOptionPane.showMessageDialog(rootPane, "sinh viên không có quyền đăng kí tài khoản");
+        ForgetStudentPassword forgetpass = new ForgetStudentPassword(this, true);
+        forgetpass.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -155,19 +152,20 @@ public class LoginForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginStudentForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new LoginForm().setVisible(true);
+            new LoginStudentForm().setVisible(true);
         });
     }
 
@@ -184,18 +182,15 @@ public class LoginForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void readListStudent() {
-         DataStudentFuctionImp dSFIMP = new DataStudentFuctionImp();
+         DataStudentFunctionImp dSFIMP = new DataStudentFunctionImp();
          dSFIMP.readStudentSQL(listST);
     }
 
     private Student checkStudentId(Student st) {
         for( Student e : listST){
             if(e.equals(st)){
-            
-            return e;
+                return e;
             }
-        
-        
         }
         return null;
     }

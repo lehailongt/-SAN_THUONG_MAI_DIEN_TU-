@@ -5,13 +5,13 @@
 package user;
 
 import javax.swing.JOptionPane;
-import student.controller.DataStudentFuctionImp;
+import student.controller.DataStudentFunctionImp;
 
 /**
  *
  * @author DELL
  */
-public class ChangePasswd extends javax.swing.JDialog {
+public class ChangeStudentPassword extends javax.swing.JDialog {
 
     private final InForStudentRegister info;
 
@@ -20,7 +20,7 @@ public class ChangePasswd extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public ChangePasswd(javax.swing.JFrame parent, boolean modal) {
+    public ChangeStudentPassword(javax.swing.JFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -107,7 +107,7 @@ public class ChangePasswd extends javax.swing.JDialog {
                     boolean flag = checkpasswd(passwdNew1);
                     if (flag) {
                         info.getSt().setPassword(passwdNew1);
-                        DataStudentFuctionImp dataST = new DataStudentFuctionImp();
+                        DataStudentFunctionImp dataST = new DataStudentFunctionImp();
                         dataST.updateStudent(info.getSt());
                         JOptionPane.showMessageDialog(rootPane, "đổi mật khẩu thành công");
                         this.dispose();
@@ -152,20 +152,21 @@ public class ChangePasswd extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeStudentPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeStudentPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeStudentPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangeStudentPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ChangePasswd dialog = new ChangePasswd(new javax.swing.JFrame(), true);
+                ChangeStudentPassword dialog = new ChangeStudentPassword(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
