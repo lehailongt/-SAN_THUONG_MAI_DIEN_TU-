@@ -109,25 +109,25 @@ public class ChangeStudentPassword extends javax.swing.JDialog {
                         info.getSt().setPassword(passwdNew1);
                         DataStudentFunctionImp dataST = new DataStudentFunctionImp();
                         dataST.updateStudent(info.getSt());
-                        JOptionPane.showMessageDialog(rootPane, "đổi mật khẩu thành công");
+                        JOptionPane.showMessageDialog(this, "đổi mật khẩu thành công");
                         this.dispose();
 
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "mật khẩu tối thiểu 8 kí tự");
+                        JOptionPane.showMessageDialog(this, "mật khẩu tối thiểu 8 kí tự");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "mật khẩu mới không khớp "
+                    JOptionPane.showMessageDialog(this, "mật khẩu mới không khớp "
                             + "vui lòng nhập lại!");
 
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "mật khẩu cũ không chính xác!");
+                JOptionPane.showMessageDialog(this, "mật khẩu cũ không chính xác!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng không để rỗng các ô!");
+            JOptionPane.showMessageDialog(this, "vui lòng không để rỗng các ô!");
         }
     }//GEN-LAST:event_btnOkActionPerformed
 

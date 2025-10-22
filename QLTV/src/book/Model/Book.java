@@ -26,13 +26,13 @@ public class Book  {
 
     public Book(){};
 
-    public Book(String bookId, String name) 
-    {
+    public Book(String bookId, String name) {
         this.bookId = bookId;
         this.name = name;
     }
-    public Book(String bookid,String name, String category, String author, String producer,
-            String price, int amount)
+    
+    public Book(String bookid,String name, String category, String author, 
+            String producer, String price, int amount)
             throws InValidPriceException, InValidAuthorException {
         this.bookId = bookid;
         this.name = name;
@@ -41,9 +41,7 @@ public class Book  {
         this.producer = producer;
         setPrice(price);
         this.amount = amount;
-    }
-
-   
+    }   
 
     public String getBookId() {
         return bookId;
@@ -56,9 +54,6 @@ public class Book  {
     public void setPrice(float price) {
         this.price = price;
     }
-
-    
-   
 
     public String getName() {
         return name;
@@ -86,7 +81,6 @@ public class Book  {
         if(datainvalid.inValidAuthorException(author)){
             this.author = author;
         }
-       
     }
 
     public String getProducer() {
@@ -117,8 +111,6 @@ public class Book  {
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
-   
 
     @Override
     public int hashCode() {

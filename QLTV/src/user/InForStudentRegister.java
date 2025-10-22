@@ -321,7 +321,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
+        int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
             LoginStudentForm lf = new LoginStudentForm();
             lf.setVisible(true);
@@ -344,30 +344,30 @@ public class InForStudentRegister extends javax.swing.JFrame {
                     readTableModelBook(listBook);
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "sách này đã được mượn "
+                    JOptionPane.showMessageDialog(this, "sách này đã được mượn "
                             + "vui lòng chọn sách khác!");
 
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sách cần mượn!");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn sách cần mượn!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "thư viện không có sách!");
+            JOptionPane.showMessageDialog(this, "thư viện không có sách!");
 
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ChangeStudentPassword cpasswd = new ChangeStudentPassword(this, rootPaneCheckingEnabled);
+        ChangeStudentPassword cpasswd = new ChangeStudentPassword(this, true);
         cpasswd.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnPayBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayBookActionPerformed
         edit = tableRegisterBook.getSelectedRow();
         if (tableModeRB.getRowCount() != 0) {
-            int choic = JOptionPane.showConfirmDialog(rootPane, "bạn chắn chắn muốn trả sách");
+            int choic = JOptionPane.showConfirmDialog(this, "bạn chắn chắn muốn trả sách");
             if (choic == JOptionPane.YES_OPTION) {
                 if (edit != -1) {
                     String giveBackBook = (String) tableModeRB.getValueAt(edit, 8);
@@ -375,20 +375,20 @@ public class InForStudentRegister extends javax.swing.JFrame {
                         String bookId = (String) tableModeRB.getValueAt(edit, 1);
                         payBook(bookId);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Trả sách thất bại "
+                        JOptionPane.showMessageDialog(this, "Trả sách thất bại "
                                 + "(vì sách này đã được Trả trước đó!)");
 
                     }
 
                 } else {
 
-                    JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sách muốn trả");
+                    JOptionPane.showMessageDialog(this, "vui lòng chọn sách muốn trả");
                 }
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "sinh viên chưa sách!");
+            JOptionPane.showMessageDialog(this, "sinh viên chưa sách!");
         }
     }//GEN-LAST:event_btnPayBookActionPerformed
 
@@ -401,7 +401,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
                 txtseach.setText("");
             }else{
             
-                  JOptionPane.showMessageDialog(rootPane, "không tìm thấy!");
+                  JOptionPane.showMessageDialog(this, "không tìm thấy!");
             }
 
         } else {
@@ -643,7 +643,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
             if (dateRb.updateRegisterBookSQL(registerBook,
                     registerBook.getBookId(), registerBook.getStudentId()) != 0) {
                 insertTableModelRB(registerBook);
-                JOptionPane.showMessageDialog(rootPane, "trả sách thành công");
+                JOptionPane.showMessageDialog(this, "trả sách thành công");
             } else {
                 System.out.println("thất bại");
             }

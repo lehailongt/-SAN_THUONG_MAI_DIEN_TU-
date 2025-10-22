@@ -9,6 +9,7 @@ package registerbook.model;
  * @author DELL
  */
 public class OutOfDate {
+    
     private String studentId;
     private String fullName;
     private String bookId;
@@ -17,8 +18,7 @@ public class OutOfDate {
     private int countDate;
     private String giveBackBook;
 
-    public OutOfDate() {
-    }
+    public OutOfDate () {};
 
     public OutOfDate(String studentId, String fullName, String bookId, 
             String nameBook, int Amount, int countDate, String giveBackBook) 

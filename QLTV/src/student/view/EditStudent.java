@@ -332,31 +332,30 @@ public class EditStudent extends javax.swing.JDialog {
                     st.setPassword(txtPassword.getText());
                     st.setDob(d);
                     sf.editStudent(st);
-                    JOptionPane.showMessageDialog(rootPane, "sửa thành công");
+                    JOptionPane.showMessageDialog(this, "sửa thành công");
                     this.dispose();
                    
                    }else{
-                    JOptionPane.showMessageDialog(rootPane,
+                    JOptionPane.showMessageDialog(this,
                              "mật khẩu tối thiểu 6 kí tự");
                    
                    }
                 } else {
-                     JOptionPane.showMessageDialog(rootPane,
+                     JOptionPane.showMessageDialog(this,
                              "ngày sinh phải nhỏ hơn ngày hiện tại!");
                 }
 
             } catch (ParseException ex) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng "
+                JOptionPane.showMessageDialog(this, "vui lòng nhập đúng "
                         + "định dạng ngày sinh (vd: 22/11/2002)");
             } catch (InValidPhoneException ex) {
-                JOptionPane.showMessageDialog(rootPane, "số điện thoại không hợp lệ");
-
+                JOptionPane.showMessageDialog(this, "số điện thoại không hợp lệ");
             } catch (InValidEmailException ex) {
-                JOptionPane.showMessageDialog(rootPane, "định dạng email không hợp lệ");
+                JOptionPane.showMessageDialog(this, "định dạng email không hợp lệ");
 
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "thông tin không hợp lệ");
+            JOptionPane.showMessageDialog(this, "thông tin không hợp lệ");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -416,17 +415,15 @@ public class EditStudent extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                EditStudent dialog = new EditStudent(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            EditStudent dialog = new EditStudent(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

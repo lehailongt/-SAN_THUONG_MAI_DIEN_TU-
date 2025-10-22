@@ -7,15 +7,7 @@ package adminstrator.view;
 import Login.HomeLoginForm;
 import adminstrator.Controller.DataAdminFuction;
 import adminstrator.model.Employee;
-import book.Controller.DataFuctionImplement;
-import com.mysql.cj.jdbc.MysqlDataSource;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.sql.ResultSet;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +17,6 @@ import javax.swing.JOptionPane;
 public class LoginAdminForm extends javax.swing.JFrame {
 
     ArrayList<Employee> listE;
-//    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
      * Creates new form LoginAdminForm
@@ -140,11 +131,11 @@ public class LoginAdminForm extends javax.swing.JFrame {
 
             } else {
 
-                JOptionPane.showMessageDialog(rootPane, "Thông Tin tài khoản và "
+                JOptionPane.showMessageDialog(this, "Thông Tin tài khoản và "
                         + "mật khẩu không chính xác!");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng không để trống các ô!");
+            JOptionPane.showMessageDialog(this, "vui lòng không để trống các ô!");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -212,7 +203,7 @@ public class LoginAdminForm extends javax.swing.JFrame {
         DataAdminFuction af = new DataAdminFuction();
         try {
             af.readListAdmin(listE);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Không kết nối được với database MySQL. \n Vui lòng kiểm tra lại thông tin.");
         }
     }

@@ -100,37 +100,33 @@ public class ChangeAdminPassword extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        
         String passwdOld = new String(txtpasswdOld.getPassword());
         String passwdNew1 = new String(txtpasswdNew1.getPassword());
         String passwdNew2 = new String(txtpasswdNew2.getPassword());
-        if (!passwdOld.isEmpty() && !passwdNew1.isEmpty() && !passwdNew2.isEmpty()) {
-            if (passwdOld.compareTo(emp.getPassword()) == 0) {
-                if (passwdNew1.compareTo(passwdNew2) == 0) {
-
-                    boolean flag = checkpasswd(passwdNew1);
-                    if (flag) {
-                        DataAdminFuction af = new DataAdminFuction();
-                        emp.setPassword(passwdNew1);
-                        af.updateAdmin(emp);
-                        JOptionPane.showMessageDialog(rootPane, "đổi mật khẩu thành công");
-                        this.dispose();
-
-                    } else {
-                        JOptionPane.showMessageDialog(rootPane,"mật khẩu tối thiểu 8 kí tự");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "mật khẩu mới không khớp "
-                            + "vui lòng nhập lại!");
-
-                }
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "mật khẩu cũ không chính xác!");
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng không để rỗng các ô!");
+        if ( passwdOld.isEmpty() || passwdNew1.isEmpty() || passwdNew2.isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng không để rỗng các ô!");
+            return;
         }
+        if ( !passwdOld.equals(emp.getPassword()) ) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu cũ không chính xác!");
+            return;
+        }
+        if ( !passwdNew1.equals(passwdNew2) ) {
+             JOptionPane.showMessageDialog(this, "Mật khẩu mới không khớp, vui lòng nhập lại!");
+             return;
+        }
+        boolean flag = checkpasswd(passwdNew1);
+        if (flag) {
+            DataAdminFuction af = new DataAdminFuction();
+            emp.setPassword(passwdNew1);
+            af.updateAdmin(emp);
+            JOptionPane.showMessageDialog(this, "Bạn đã đổi mật khẩu thành công.");
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this,"mật khẩu tối thiểu 6 kí tự.");
+        }
+        
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btncloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncloseActionPerformed

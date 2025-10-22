@@ -6,12 +6,11 @@ package adminstrator.view;
 
 import adminstrator.Controller.DataAdminFuction;
 import adminstrator.model.Employee;
-import book.Controller.DataFuctionImplement;
-import com.mysql.cj.jdbc.MysqlDataSource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import student.model.InValidPhoneException;
 
 /**
  *
@@ -123,20 +122,10 @@ public class AdminRegisterForm extends javax.swing.JDialog {
         buttonGroup1.add(female);
         female.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         female.setText("Nữ");
-        female.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femaleActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(male);
         male.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         male.setText("Nam");
-        male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maleActionPerformed(evt);
-            }
-        });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 51, 51));
@@ -252,14 +241,6 @@ public class AdminRegisterForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_femaleActionPerformed
-
-    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maleActionPerformed
-
     public boolean isValidForm() {
         return !txtadmin.getText().isEmpty() && !mknew.getText().isEmpty()
                 && !tennew.getText().isEmpty() && !nsnew.getText().isEmpty()
@@ -267,44 +248,48 @@ public class AdminRegisterForm extends javax.swing.JDialog {
                 && !sdtnew.getText().isEmpty() 
                 && !dcnew.getText().isEmpty();
     }
+    
     public boolean checkGender() {
         return male.isSelected() || female.isSelected();
     }
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(isValidForm()) {
-            DataAdminFuction daf = new DataAdminFuction();
-            try {
-                String tk = txtadmin.getText();
-                if (daf.checkExistAccountAdminSQL(tk)) {
-                    JOptionPane.showMessageDialog(rootPane, "Tài khoản đã tồn tại.");
-                    return;
-                } 
-                String mk = mknew.getText();
-                String ten = tennew.getText();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                Date ns = sdf.parse(nsnew.getText());
-                String gt = male.isSelected() ? "Nam" : "Nữ";
-                String sdt = sdtnew.getText();
-                String dc = dcnew.getText();
-                Employee e = new Employee(tk, mk, ten, ns, dc, sdt, gt);
-                daf.writeRegisterAdminSQL(e);
-                this.dispose();
-                JOptionPane.showMessageDialog(rootPane, "Đăng kí thành công"); 
-                
-            } catch (ParseException ex) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng "
-                        + "định dạng ngày sinh (vd: 22/11/2002)");
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đầy đủ thông tin");
+        if( !isValidForm() ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
+            return;
+        }
+        DataAdminFuction daf = new DataAdminFuction();
+        try {
+            String tk = txtadmin.getText();
+            if (daf.checkExistAccountAdminSQL(tk)) {
+                JOptionPane.showMessageDialog(this, "Tài khoản đã tồn tại.");
+                return;
+            } 
+            String mk = mknew.getText();
+            String ten = tennew.getText();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date ns = sdf.parse(nsnew.getText());
+            String gt = male.isSelected() ? "Nam" : "Nữ";
+            String sdt = sdtnew.getText();
+            String dc = dcnew.getText();
+            Employee e = new Employee(tk, mk, ten, ns, dc, sdt, gt);
+            e.setPhone(sdt);
+            daf.writeRegisterAdminSQL(e);
+            JOptionPane.showMessageDialog(this, "Đăng kí thành công"); 
+            this.dispose();
+
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, "vui lòng nhập đúng "
+                    + "định dạng ngày sinh (vd: 22/11/2002)");
+        } catch (InValidPhoneException ex) {
+            JOptionPane.showMessageDialog(this, "Số điện thoại không hợp lệ.");
         }
        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
-        JOptionPane.showMessageDialog(rootPane, "Hủy đăng kí thành công");
+        JOptionPane.showMessageDialog(this, "Bạn đã hủy đăng kí.");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tennewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tennewActionPerformed

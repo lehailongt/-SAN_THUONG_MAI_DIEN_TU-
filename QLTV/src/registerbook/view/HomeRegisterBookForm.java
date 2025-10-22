@@ -14,8 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import registerbook.controller.DataRegisterBookimp;
@@ -609,11 +607,11 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "ô mã sách đang rỗng!");
+                JOptionPane.showMessageDialog(this, "ô mã sách đang rỗng!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách quản lý sách rỗng!");
+            JOptionPane.showMessageDialog(this, "danh sách quản lý sách rỗng!");
 
         }
     }//GEN-LAST:event_btnCheckBookIdActionPerformed
@@ -628,7 +626,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             SimpleDateFormat dfbd = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             if (((studentId.isEmpty() || bookId.isEmpty()) || amount <= 0)
                     || appointDateText.isEmpty()) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng không để trống thông tin mượn sách!");
+                JOptionPane.showMessageDialog(this, "vui lòng không để trống thông tin mượn sách!");
                 
             } else {
                 try {
@@ -662,46 +660,45 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                                             txtappointDate.setText("");
                                             LabelCheckSTid.setText("");
                                             LabelCheckBookId.setText("");
-                                            JOptionPane.showMessageDialog(rootPane, "thêm thành công");
+                                            JOptionPane.showMessageDialog(this, "thêm thành công");
 
                                         } else {
 
-                                            JOptionPane.showMessageDialog(rootPane, "mã sinh viên: "
+                                            JOptionPane.showMessageDialog(this, "mã sinh viên: "
                                                     + st.getStudentId() + " đã mượn sách với "
                                                             + "mã sách:" + book.getBookId());
                                         }
 
                                     } else {
-                                        JOptionPane.showMessageDialog(rootPane, "ngày hẹn trả phải "
+                                        JOptionPane.showMessageDialog(this, "ngày hẹn trả phải "
                                                 + "lớn hơn ngày hiện thời");
                                     }
                                 } else {
-                                    JOptionPane.showMessageDialog(rootPane, " chỉ mượn tối đa 3 quyển");
+                                    JOptionPane.showMessageDialog(this, " chỉ mượn tối đa 3 quyển");
 
                                 }
 
                             } else {
-                                JOptionPane.showMessageDialog(rootPane, "số lượng sách trong "
+                                JOptionPane.showMessageDialog(this, "số lượng sách trong "
                                         + "thư viên không đủ cho "
                                         + "bạn mượn(số sách còn lại là: "
                                         + book.getAmount() + ")");
                             }
 
                         } else {
-                            JOptionPane.showMessageDialog(rootPane, "mã sách không tồn tại");
+                            JOptionPane.showMessageDialog(this, "mã sách không tồn tại");
 
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "mã sinh viên không tồn tại");
+                        JOptionPane.showMessageDialog(this, "mã sinh viên không tồn tại");
                     }
                 } catch (ParseException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng định dạng (vd: 22/12/2022)!");
+                    JOptionPane.showMessageDialog(this, "vui lòng nhập đúng định dạng (vd: 22/12/2022)!");
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách mượn trả rỗng!");
+            JOptionPane.showMessageDialog(this, "danh sách mượn trả rỗng!");
 
         }
     }//GEN-LAST:event_btnAddRegisterBookActionPerformed
@@ -724,12 +721,12 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "ô mã sinh viên đang rỗng!");
+                JOptionPane.showMessageDialog(this, "ô mã sinh viên đang rỗng!");
 
             }
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "danh sách sinh viên rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách sinh viên rỗng");
         }
     }//GEN-LAST:event_btnCheckStudentIdActionPerformed
 
@@ -737,7 +734,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
         if (!listRb.isEmpty()) {
             edit = tableRegisterBook.getSelectedRow();
             if (edit != -1) {
-                int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn trả sách?");
+                int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn trả sách?");
                 if (choic == JOptionPane.YES_OPTION) {
                     RegisterBook rb = listRb.get(edit);
                     if (rb.getGiveBookBack().equalsIgnoreCase("chưa trả")) {
@@ -763,20 +760,20 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                             updateTableOutOfDate(rb);
                         }
                         edit = -1;
-                        JOptionPane.showMessageDialog(rootPane, "trả thành công");
+                        JOptionPane.showMessageDialog(this, "trả thành công");
                     } else {
 
-                        JOptionPane.showMessageDialog(rootPane, "trả sách thất bạn vì mã sinh viên: "
+                        JOptionPane.showMessageDialog(this, "trả sách thất bạn vì mã sinh viên: "
                                 + rb.getStudentId() + "đã trả sách trước đó!");
                     }
                 }
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn số hàng để trả sách");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn số hàng để trả sách");
 
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnPayBookActionPerformed
 
@@ -786,7 +783,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             if (edit != -1) {
                 RegisterBook rb = this.listRb.get(edit);
                 int amountOld = rb.getAmountBook();
-                EditRegisterBook eRB = new EditRegisterBook(this, rootPaneCheckingEnabled, rb);
+                EditRegisterBook eRB = new EditRegisterBook(this, true, rb);
                 eRB.setVisible(true);
                 int amountNew = rb.getAmountBook();
                 if (amountNew != amountOld) {
@@ -800,11 +797,11 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                 edit = -1;
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn số hàng để sửa thông tin");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn số hàng để sửa thông tin");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -815,7 +812,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             if (rbtnBookId.isSelected()) {
                 listSeachRb = drb.seachByBookId(listRb, seach);
                 if (listSeachRb.isEmpty()) {
-                    JOptionPane.showMessageDialog(rootPane, "không tồn tại mã sách!");
+                    JOptionPane.showMessageDialog(this, "không tồn tại mã sách!");
 
                 } else {
                     showListRb(listSeachRb);
@@ -823,7 +820,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             } else if (rbtnStudentId.isSelected()) {
                 listSeachRb = drb.seachByStudentId(listRb, seach);
                 if (listSeachRb.isEmpty()) {
-                    JOptionPane.showMessageDialog(rootPane, "không tồn tại mã sinh viên");
+                    JOptionPane.showMessageDialog(this, "không tồn tại mã sinh viên");
 
                 } else {
                     showListRb(listSeachRb);
@@ -832,7 +829,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             } else if (rbtnSeachGiveBookBack.isSelected()) {
                 listSeachRb = drb.seachByGiveBookBack(this.listRb, seach);
                 if (listSeachRb.isEmpty()) {
-                    JOptionPane.showMessageDialog(rootPane, "không có phiếu mượn nào!");
+                    JOptionPane.showMessageDialog(this, "không có phiếu mượn nào!");
 
                 } else {
                     showListRb(listSeachRb);
@@ -840,12 +837,12 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
 
             } else {
 
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn các chức năng");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn các chức năng");
             }
             txtSeachRB.setText("");
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "ô tìm kiếm đang rỗng!");
+            JOptionPane.showMessageDialog(this, "ô tìm kiếm đang rỗng!");
         }
     }//GEN-LAST:event_btnSeachRbActionPerformed
 
@@ -858,7 +855,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnBookIdActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
+        int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
             LoginAdminForm laf = new LoginAdminForm();
             laf.setVisible(true);
@@ -879,28 +876,28 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             if (edit != -1) {
                 RegisterBook e = listRb.get(edit);
                 if (e.getGiveBookBack().equalsIgnoreCase("đã trả")) {
-                    int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn xóa!");
+                    int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn xóa!");
                     if (choic == JOptionPane.YES_OPTION) {
                         DataRegisterBookimp dataRegisterBookimp = new DataRegisterBookimp();
                         dataRegisterBookimp.deleteRegisterBookSQL(e);
                         listRb.remove(edit);
                         tableModelRb.removeRow(edit);
-                        JOptionPane.showMessageDialog(rootPane, "xóa sinh viên thành công");
+                        JOptionPane.showMessageDialog(this, "xóa sinh viên thành công");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "sinh viên chưa trả sách không thể xóa!");
+                    JOptionPane.showMessageDialog(this, "sinh viên chưa trả sách không thể xóa!");
 
                 }
 
             } else {
 
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn bảng ghi cần xóa!");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn bảng ghi cần xóa!");
             }
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
@@ -932,10 +929,8 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomeRegisterBookForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new HomeRegisterBookForm().setVisible(true);
         });
     }
 
@@ -1138,7 +1133,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "không có sinh viên nào trả sách muộn!");
+            JOptionPane.showMessageDialog(this, "không có sinh viên nào trả sách muộn!");
         }
     }
 
@@ -1223,7 +1218,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             showListOOP();
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách phiếu mượn rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách phiếu mượn rỗng");
         }
     }
 

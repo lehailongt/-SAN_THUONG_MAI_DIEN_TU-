@@ -178,37 +178,37 @@ public class BorrowBooks extends javax.swing.JDialog {
                             dBook.updateBookSQL(book);
                             this.inforst.editAmountBook(book);
                             this.inforst.addRegisterBook(appointdate, book, amount);
-                            JOptionPane.showMessageDialog(rootPane, "mượn Thành Công");
+                            JOptionPane.showMessageDialog(this, "mượn Thành Công");
                             this.dispose();
                              }else{
-                             JOptionPane.showMessageDialog(rootPane, "ngày Hẹn "
+                             JOptionPane.showMessageDialog(this, "ngày Hẹn "
                                      + "Trả Phải Lớn Hơn Ngày Hiện Thời!");
                              }
                         } catch (ParseException ex) {
-                            JOptionPane.showMessageDialog(rootPane, "vui lòng nhập "
+                            JOptionPane.showMessageDialog(this, "vui lòng nhập "
                                     + "đúng định dạng vd: 22/12/2002");
                         }
 
                     } else {
 
-                        JOptionPane.showMessageDialog(rootPane, "số lượng sách trong "
+                        JOptionPane.showMessageDialog(this, "số lượng sách trong "
                                 + "thư viện không đủ cho bạn mượn "
                                 + "vui lòng nhập số lượng nhỏ hơn " + book.getAmount());
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "sách: "
+                    JOptionPane.showMessageDialog(this, "sách: "
                             + book.getName() + " trong thư viện đã Hết!");
 
                 }
 
             } else {
 
-                JOptionPane.showMessageDialog(rootPane, "chỉ được phép mượn "
+                JOptionPane.showMessageDialog(this, "chỉ được phép mượn "
                         + "tối đa 3 quyển");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng không để trống "
+            JOptionPane.showMessageDialog(this, "vui lòng không để trống "
                     + "các ô hoặc số lượng > 0!");
 
         }

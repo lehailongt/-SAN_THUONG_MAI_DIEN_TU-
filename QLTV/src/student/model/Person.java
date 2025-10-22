@@ -4,7 +4,6 @@
  */
 package student.model;
 
-//import book.Controller.DataInValidException;
 import java.util.Date;
 import student.controller.DataSTInValidException;
 
@@ -59,9 +58,9 @@ public class Person {
         return phone;
     }
 
-    public void setPhone(String phone) throws InValidPhoneException {
-        DataSTInValidException stvalid = new DataSTInValidException();
-        if(stvalid.invalidPhone(phone)){
+    public void setPhone(String phone)throws InValidPhoneException {
+        DataSTInValidException phoneException = new DataSTInValidException();
+        if ( phoneException.invalidPhone(phone) ) {
             this.phone = phone;
         }
     }

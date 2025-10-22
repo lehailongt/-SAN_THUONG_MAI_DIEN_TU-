@@ -24,14 +24,14 @@ public class EditBookDialog extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-     public EditBookDialog(javax.swing.JFrame parent, boolean modal) {
+     
+    public EditBookDialog(javax.swing.JFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         bf = (BookForm) parent;
-        
-        
     }
+     
     public EditBookDialog(javax.swing.JFrame parent, boolean modal,Book b) {  
         this(parent, modal);
         txtbookId.setText(b.getBookId());
@@ -43,11 +43,7 @@ public class EditBookDialog extends javax.swing.JDialog {
         txtProducer.setText(b.getProducer());
         
     }
-   
-
     
-
-  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -253,23 +249,20 @@ public class EditBookDialog extends javax.swing.JDialog {
                 book = new Book(bookid, nameBook, category, auThor ,producer , price, amount);
                  bf.editBook(book);
                  System.out.println(bf.edit);
-               JOptionPane.showMessageDialog(rootPane, "sửa thành công");
+               JOptionPane.showMessageDialog(this, "sửa thành công");
                this.dispose();
             } catch (InValidPriceException ex) {
-                JOptionPane.showMessageDialog(rootPane, "giá sách không hợp lệ!");
+                JOptionPane.showMessageDialog(this, "giá sách không hợp lệ!");
             } catch (InValidAuthorException ex) {
-               JOptionPane.showMessageDialog(rootPane, "tên không hợp lệ");
+               JOptionPane.showMessageDialog(this, "tên không hợp lệ");
             }
-           
-            
-
-        }else{
-        JOptionPane.showMessageDialog(rootPane, "thông tin không hợp lệ");
+        } else {
+            JOptionPane.showMessageDialog(this, "thông tin không hợp lệ");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "bạn đã hủy!");
+        JOptionPane.showMessageDialog(this, "bạn đã hủy!");
         this.dispose();
     }//GEN-LAST:event_btnCloseActionPerformed
 
@@ -348,9 +341,6 @@ public class EditBookDialog extends javax.swing.JDialog {
                 comboboxCategory.setSelectedIndex(i);
                 break;
             }
-
         }
-
     }
-
 }

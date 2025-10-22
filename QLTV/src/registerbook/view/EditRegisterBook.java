@@ -10,12 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import registerbook.controller.DataRegisterBookimp;
-
-import registerbook.controller.DataRegisterBookFuction;
 import registerbook.model.RegisterBook;
 import student.model.Student;
 
@@ -36,6 +32,7 @@ public class EditRegisterBook extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
+    
     public EditRegisterBook(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -229,7 +226,7 @@ public class EditRegisterBook extends javax.swing.JDialog {
                                         DataRegisterBookimp dfRB = new DataRegisterBookimp();
                                         dfRB.updateRegisterBookSQL(this.rb, bookId, studentId);
                                         this.hRBF.editTableModelRB(this.rb);
-                                        JOptionPane.showMessageDialog(rootPane, "cập nhật thành công");
+                                        JOptionPane.showMessageDialog(this, "cập nhật thành công");
                                         this.dispose();
 
                                     } else {
@@ -261,12 +258,12 @@ public class EditRegisterBook extends javax.swing.JDialog {
                                             DataRegisterBookimp dfRB = new DataRegisterBookimp();
                                             dfRB.updateRegisterBookSQL(this.rb, bookidOld, studentIdOld);
                                             this.hRBF.editTableModelRB(this.rb);
-                                            JOptionPane.showMessageDialog(rootPane, "cập nhật thành công");
+                                            JOptionPane.showMessageDialog(this, "cập nhật thành công");
                                             this.dispose();
 
                                         } else {
 
-                                            JOptionPane.showMessageDialog(rootPane, "mã sinh viên: "
+                                            JOptionPane.showMessageDialog(this, "mã sinh viên: "
                                                     + st.getStudentId() + " đã mượn sách với "
                                                     + "mã sách:" + book.getBookId());
                                         }
@@ -274,36 +271,36 @@ public class EditRegisterBook extends javax.swing.JDialog {
                                     }
 
                                 } else {
-                                    JOptionPane.showMessageDialog(rootPane, "ngày hẹn trả phải "
+                                    JOptionPane.showMessageDialog(this, "ngày hẹn trả phải "
                                             + "lớn hơn ngày hiện thời");
                                 }
 
                             } else {
-                                JOptionPane.showMessageDialog(rootPane, "  chỉ mượn tối đa 3 quyển");
+                                JOptionPane.showMessageDialog(this, "  chỉ mượn tối đa 3 quyển");
 
                             }
 
                         } else {
-                            JOptionPane.showMessageDialog(rootPane, "số lượng sách trong "
+                            JOptionPane.showMessageDialog(this, "số lượng sách trong "
                                     + "thư viên không đủ cho "
                                     + "bạn mượn(số sách còn lại là: "
                                     + book.getAmount() + ")");
                         }
 
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "mã sách không tồn tại");
+                        JOptionPane.showMessageDialog(this, "mã sách không tồn tại");
 
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "mã sinh viên không tồn tại");
+                    JOptionPane.showMessageDialog(this, "mã sinh viên không tồn tại");
                 }
             } catch (ParseException ex) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng định dạng (vd: 22/12/2022)!");
+                JOptionPane.showMessageDialog(this, "vui lòng nhập đúng định dạng (vd: 22/12/2022)!");
                 ex.printStackTrace();
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng không để trống thông tin!)");
+            JOptionPane.showMessageDialog(this, "vui lòng không để trống thông tin!)");
 
         }
 

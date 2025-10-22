@@ -6,7 +6,6 @@ package adminstrator.Controller;
 
 import Database.databaseConnection;
 import adminstrator.model.Employee;
-import book.Controller.DataFuctionImplement;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +28,7 @@ public class DataAdminFuction {
     
     public DataAdminFuction(){};
     
-    public void readListAdmin(ArrayList<Employee> listE) throws SQLException {
+    public void readListAdmin(ArrayList<Employee> listE) {
         try ( Connection conn = data.getConnection() ) {
             String sql = "SELECT * FROM employee";
             PreparedStatement per = conn.prepareStatement(sql);
@@ -95,10 +94,7 @@ public class DataAdminFuction {
             String sql = "SELECT * FROM employee WHERE tk = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, tk);
-
             ResultSet rs = ps.executeQuery();
-
-            // Nếu có dòng dữ liệu => tài khoản tồn tại
             return rs.next();
 
         } catch (SQLException ex) {
@@ -121,6 +117,7 @@ public class DataAdminFuction {
             ps.setString(6, newEmployee.getAddress());
             ps.setString(7, newEmployee.getPhone());
             ps.executeUpdate();
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

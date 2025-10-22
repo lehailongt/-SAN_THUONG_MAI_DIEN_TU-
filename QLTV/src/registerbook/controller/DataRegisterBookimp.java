@@ -5,21 +5,14 @@
 package registerbook.controller;
 
 import Database.databaseConnection;
-import book.Controller.DataFuctionImplement;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-//import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import registerbook.model.RegisterBook;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
-//import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,13 +42,10 @@ public class DataRegisterBookimp implements DataRegisterBookFuction {
                 RegisterBook rb = new RegisterBook(studentId, bookId, amount, borrowDate,
                         appointDate, payDate, giveBookBack);
                 listRb.add(rb);
-
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
     }
 
     @Override

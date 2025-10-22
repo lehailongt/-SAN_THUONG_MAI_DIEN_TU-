@@ -8,14 +8,10 @@ package student.view;
 import adminstrator.model.Employee;
 import adminstrator.view.HomeForm;
 import adminstrator.view.LoginAdminForm;
-import book.Controller.DataFuctionImplement;
-import book.Model.Book;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import student.controller.DataStudentFunctionImp;
@@ -529,21 +525,21 @@ public class StudentForm extends javax.swing.JFrame {
                     if (!listSearch.isEmpty()) {
                         showListSeachStudent(listSearch);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy tên lớp tương ứng!");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy tên lớp tương ứng!");
                     }
                 } else if (btnSeachByStudentId.isSelected()) {
                     Student searchStudent = dataImplement.searchStudentById(listStudent, search);
                     if (searchStudent != null) {
                         showSearchStudent(searchStudent);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy mã sinh vien tuong ung");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy mã sinh vien tuong ung");
                     }
                 } else if (btnSeachByNameStudent.isSelected()) {
                     listSearch = dataImplement.searchByName(listStudent, search);
                     if (!listSearch.isEmpty()) {
                         showListSeachStudent(listSearch);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy tên sinh vien tuong ung!");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy tên sinh vien tuong ung!");
                     }
                 }
                 txtSearch.setText("");
@@ -552,11 +548,11 @@ public class StudentForm extends javax.swing.JFrame {
                 btnSeachByNameStudent.setSelected(false);
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "ô tìm kiếm đang rỗng!");
+                JOptionPane.showMessageDialog(this, "ô tìm kiếm đang rỗng!");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng chọn chức năng tìm kiếm");
+            JOptionPane.showMessageDialog(this, "vui lòng chọn chức năng tìm kiếm");
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -581,23 +577,23 @@ public class StudentForm extends javax.swing.JFrame {
                 dataImplement.insertStudent(s);
                 addTableModle(s);
                 resetForm();
-                JOptionPane.showMessageDialog(rootPane, "Thêm sinh viên thành công");
+                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công");
                 }else{
                 
-                JOptionPane.showMessageDialog(rootPane, "ngày sinh phải nhỏ hơn ngày hiện thời!");
+                JOptionPane.showMessageDialog(this, "ngày sinh phải nhỏ hơn ngày hiện thời!");
                 }
 
             } catch (ParseException e) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng định dạng (vd: 12/12/2002)!");
+                JOptionPane.showMessageDialog(this, "vui lòng nhập đúng định dạng (vd: 12/12/2002)!");
 
             } catch (InValidPhoneException ex) {
-                JOptionPane.showMessageDialog(rootPane, "số điện thoại không hợp lệ");
+                JOptionPane.showMessageDialog(this, "số điện thoại không hợp lệ");
             } catch (InValidEmailException ex) {
-                JOptionPane.showMessageDialog(rootPane, "email không hợp lệ");
+                JOptionPane.showMessageDialog(this, "email không hợp lệ");
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đầy đủ thông tin");
+            JOptionPane.showMessageDialog(this, "vui lòng nhập đầy đủ thông tin");
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -608,10 +604,10 @@ public class StudentForm extends javax.swing.JFrame {
                 EditStudent editS = new EditStudent(this, true, listStudent.get(edit));
                 editS.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sinh viên cần sinh sửa");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn sinh viên cần sinh sửa");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -619,21 +615,21 @@ public class StudentForm extends javax.swing.JFrame {
         edit = tbStudent.getSelectedRow();
         if (!listStudent.isEmpty()) {
             if (edit != -1) {
-                int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn xóa?");
+                int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn xóa?");
                 if (choic == JOptionPane.YES_OPTION) {
                     dataImplement.delStudent(listStudent.get(edit));
                     listStudent.remove(edit);
                     tableModel.removeRow(edit);
                     tableModel.fireTableDataChanged();
-                    JOptionPane.showMessageDialog(rootPane, "xóa thành công");
+                    JOptionPane.showMessageDialog(this, "xóa thành công");
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "bạn đã hủy");
+                    JOptionPane.showMessageDialog(this, "bạn đã hủy");
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sinh viên cần xóa");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn sinh viên cần xóa");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
@@ -658,7 +654,7 @@ public class StudentForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
+        int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
             LoginAdminForm laf = new LoginAdminForm();
             laf.setVisible(true);

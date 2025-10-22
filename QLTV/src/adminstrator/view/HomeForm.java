@@ -150,7 +150,7 @@ public class HomeForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
+        int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
             LoginAdminForm laf = new LoginAdminForm();
             laf.setVisible(true);
@@ -181,12 +181,12 @@ public class HomeForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStudentActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        InforEmployee info = new InforEmployee(this, rootPaneCheckingEnabled);
+        InforEmployee info = new InforEmployee(this, true);
         info.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        ChangeAdminPassword cp = new ChangeAdminPassword(this, rootPaneCheckingEnabled);
+        ChangeAdminPassword cp = new ChangeAdminPassword(this, true);
         cp.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

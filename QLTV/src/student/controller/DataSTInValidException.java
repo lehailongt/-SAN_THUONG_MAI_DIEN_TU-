@@ -15,7 +15,7 @@ import student.model.InValidPhoneException;
  */
 public class DataSTInValidException {
 
-  public  boolean invalidPhone(String phone) throws InValidPhoneException {
+    public  boolean invalidPhone(String phone) throws InValidPhoneException {
         String regex = "^[0-9]{10}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(phone);
@@ -26,8 +26,8 @@ public class DataSTInValidException {
         }
 
     }
-  public boolean invalidEmail(String email) throws InValidEmailException{
   
+    public boolean invalidEmail(String email) throws InValidEmailException{
         String regex = "^[a-zA-Z0-9_]+@gmail.com$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);

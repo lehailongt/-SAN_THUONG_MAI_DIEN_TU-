@@ -12,8 +12,6 @@ import book.Controller.InValidAuthorException;
 import book.Controller.InValidPriceException;
 import book.Model.Book;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import registerbook.controller.DataRegisterBookimp;
@@ -440,7 +438,7 @@ public class BookForm extends javax.swing.JFrame {
                         price, count);
 
                 if (listBook.contains(book)) {
-                    JOptionPane.showMessageDialog(rootPane, "mã sách đã tồn tại");
+                    JOptionPane.showMessageDialog(this, "mã sách đã tồn tại");
 
                 } else {
                     listBook.add(book);
@@ -453,17 +451,17 @@ public class BookForm extends javax.swing.JFrame {
                     txtProDucer.setText("");
                     spinnerCount.setValue(0);
                     txtPrice.setText("");
-                    JOptionPane.showMessageDialog(rootPane, "thêm sách thành công");
+                    JOptionPane.showMessageDialog(this, "thêm sách thành công");
                 }
             } catch (InValidPriceException ex) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng định dạng giá tiền");
+                JOptionPane.showMessageDialog(this, "vui lòng nhập đúng định dạng giá tiền");
             } catch (InValidAuthorException ex) {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đúng định dạng tên tác giả");
+                JOptionPane.showMessageDialog(this, "vui lòng nhập đúng định dạng tên tác giả");
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "vui lòng nhập đầy đủ thông tin");
+            JOptionPane.showMessageDialog(this, "vui lòng nhập đầy đủ thông tin");
 
         }
 
@@ -478,12 +476,12 @@ public class BookForm extends javax.swing.JFrame {
                 ebf.setVisible(true);
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sinh viên cần sinh sửa");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn sinh viên cần sinh sửa");
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -491,7 +489,7 @@ public class BookForm extends javax.swing.JFrame {
         edit = tableBook.getSelectedRow();
         if (!listBook.isEmpty()) {
             if (edit != -1) {
-                int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn xóa?");
+                int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn xóa?");
                 if (choic == JOptionPane.YES_OPTION) {
                     boolean flag = checkDelBook(listBook.get(edit));
                     if (flag) {
@@ -499,23 +497,23 @@ public class BookForm extends javax.swing.JFrame {
                         listBook.remove(edit);
                         tableModel.removeRow(edit);
                         tableModel.fireTableDataChanged();
-                        JOptionPane.showMessageDialog(rootPane, "xóa thành công");
+                        JOptionPane.showMessageDialog(this, "xóa thành công");
 
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "sách không thể xóa vì "
+                        JOptionPane.showMessageDialog(this, "sách không thể xóa vì "
                                 + " có sinh viên đang mượn");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "bạn đã hủy");
+                    JOptionPane.showMessageDialog(this, "bạn đã hủy");
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "vui lòng chọn sinh viên cần sinh sửa");
+                JOptionPane.showMessageDialog(this, "vui lòng chọn sinh viên cần sinh sửa");
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "danh sách rỗng");
+            JOptionPane.showMessageDialog(this, "danh sách rỗng");
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
@@ -538,21 +536,21 @@ public class BookForm extends javax.swing.JFrame {
                     if (!listSeach.isEmpty()) {
                         showListSeachBook(listSeach);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy tên tác giả!");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy tên tác giả!");
                     }
                 } else if (rbtnSeachBookId.isSelected()) {
                     Book seachBook = dataimplement.seachBookId(listBook, seach);
                     if (seachBook != null) {
                         showSeachBook(seachBook);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy mã sách");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy mã sách");
                     }
                 } else if (rbtnSeachNameBook.isSelected()) {
                     listSeach = dataimplement.seachByNameBook(listBook, seach);
                     if (!listSeach.isEmpty()) {
                         showListSeachBook(listSeach);
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "không tìm thấy tên sách!");
+                        JOptionPane.showMessageDialog(this, "không tìm thấy tên sách!");
                     }
                 }
                 txtSeach.setText("");
@@ -561,13 +559,13 @@ public class BookForm extends javax.swing.JFrame {
                 rbtnSeachNameBook.setSelected(false);
 
             } else {
-                JOptionPane.showMessageDialog(rootPane, "ô tìm kiếm đang rỗng!");
+                JOptionPane.showMessageDialog(this, "ô tìm kiếm đang rỗng!");
 
             }
 
         } else {
 
-            JOptionPane.showMessageDialog(rootPane, "vui lòng chọn chức năng tìm kiếm");
+            JOptionPane.showMessageDialog(this, "vui lòng chọn chức năng tìm kiếm");
         }
     }//GEN-LAST:event_btnSeachActionPerformed
 
@@ -576,7 +574,7 @@ public class BookForm extends javax.swing.JFrame {
     }//GEN-LAST:event_comboboxCategoryActionPerformed
 
     private void MenuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemLogoutActionPerformed
-        int choic = JOptionPane.showConfirmDialog(rootPane, "bạn có chắc chắn muốn đăng xuất!");
+        int choic = JOptionPane.showConfirmDialog(this, "bạn có chắc chắn muốn đăng xuất!");
         if (choic == JOptionPane.YES_OPTION) {
             LoginAdminForm laf = new LoginAdminForm();
             laf.setVisible(true);
