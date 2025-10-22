@@ -29,7 +29,7 @@ public class DataAdminFuction {
     
     public DataAdminFuction(){};
     
-    public void readListAdmin(ArrayList<Employee> listE) {
+    public void readListAdmin(ArrayList<Employee> listE) throws SQLException {
         try ( Connection conn = data.getConnection() ) {
             String sql = "SELECT * FROM employee";
             PreparedStatement per = conn.prepareStatement(sql);

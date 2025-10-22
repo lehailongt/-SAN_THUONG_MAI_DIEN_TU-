@@ -210,7 +210,11 @@ public class LoginAdminForm extends javax.swing.JFrame {
 
     private void readList() {
         DataAdminFuction af = new DataAdminFuction();
-        af.readListAdmin(listE);
+        try {
+            af.readListAdmin(listE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Không kết nối được với database MySQL. \n Vui lòng kiểm tra lại thông tin.");
+        }
     }
 
     private Employee checkEmployee(Employee em) {

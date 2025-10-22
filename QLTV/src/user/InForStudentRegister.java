@@ -6,9 +6,11 @@ package user;
 
 import book.Controller.DataFuctionImplement;
 import book.Model.Book;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import registerbook.controller.DataRegisterBookimp;
@@ -51,7 +53,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
 
     }
 
-    private InForStudentRegister() {
+    public InForStudentRegister() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -59,7 +61,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     public Student getSt() {
         return st;
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,7 +72,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        imageStudent = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -101,8 +103,15 @@ public class InForStudentRegister extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/rsz_anh-dai-dien-hacker-dep_104206058.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 100, 145));
+        imageStudent.setBackground(new java.awt.Color(255, 255, 255));
+        imageStudent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255), 5));
+        imageStudent.setOpaque(true);
+        imageStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageStudentMouseClicked(evt);
+            }
+        });
+        jPanel1.add(imageStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 130, 160));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Mã SV:");
@@ -401,6 +410,12 @@ public class InForStudentRegister extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnseachActionPerformed
 
+    private void imageStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageStudentMouseClicked
+        ChangeImageForm cif = new ChangeImageForm(this, true);
+        cif.setVisible(true);
+        imageStudent.setIcon(imgStudent());
+    }//GEN-LAST:event_imageStudentMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -440,7 +455,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnPayBook;
     private javax.swing.JButton btnseach;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imageStudent;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -465,12 +480,29 @@ public class InForStudentRegister extends javax.swing.JFrame {
     private javax.swing.JTextField txtseach;
     // End of variables declaration//GEN-END:variables
 
+   
+    public ImageIcon imgStudent () {
+        convertImage ci = new convertImage();
+        String[] extensions = {".png", ".jpg"}; 
+        String studentID = st.getStudentId();
+        for (String x : extensions) {
+            String fileSource = "src/image/account/" + studentID + x;
+            File f = new File(fileSource);
+            if( f.exists() ) {
+                return ci.convertImageFitToLabel(f, imageStudent);
+            }
+        }
+        File f = new File("src/image/account/anonymous.png");
+        return ci.convertImageFitToLabel(f, imageStudent);
+    }
+    
     private void showInforST() {
         txtStudentId.setText(st.getStudentId());
         String fullName = st.getName();
         txtFullName.setText(fullName);
         txtClass.setText(st.getClassRoon());
         txtMajor.setText(st.getMajor());
+        imageStudent.setIcon(imgStudent());
     }
 
     private void readList() {

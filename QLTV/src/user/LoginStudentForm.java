@@ -120,7 +120,7 @@ public class LoginStudentForm extends javax.swing.JFrame {
             inforStRg.setVisible(true);
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(rootPane, "tài khoản và mật khẩu không đúng!");
+            JOptionPane.showMessageDialog(rootPane, "Bạn đã nhập sai thông tin.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

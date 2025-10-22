@@ -40,7 +40,7 @@ public class InforEmployee extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        imageAdmin = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lableName = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -57,18 +57,18 @@ public class InforEmployee extends javax.swing.JDialog {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/rsz_11Ảnh-đại-diện-fb-mặc-định-nữ-150x150.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 90, 130));
-        jLabel2.getAccessibleContext().setAccessibleDescription("");
+        imageAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/account/anonymous.png"))); // NOI18N
+        imageAdmin.setText("jLabel2");
+        getContentPane().add(imageAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 80, 210, 180));
+        imageAdmin.getAccessibleContext().setAccessibleDescription("");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Họ Và Tên:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, 30));
 
         lableName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lableName.setText("*Tên");
-        getContentPane().add(lableName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 230, -1));
+        getContentPane().add(lableName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 230, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Ngày Sinh:");
@@ -88,11 +88,11 @@ public class InforEmployee extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Tài Khoản:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
 
         lableTK.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lableTK.setText("*tài Khoản");
-        getContentPane().add(lableTK, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 190, -1));
+        getContentPane().add(lableTK, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 190, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Địa chỉ:");
@@ -108,7 +108,7 @@ public class InforEmployee extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     /**
      * @param args the command line arguments
      */
@@ -150,9 +150,9 @@ public class InforEmployee extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imageAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
