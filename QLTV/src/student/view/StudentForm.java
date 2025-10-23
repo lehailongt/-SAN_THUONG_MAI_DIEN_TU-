@@ -48,6 +48,7 @@ public class StudentForm extends javax.swing.JFrame {
         stt = listStudent.size() + 1;
         setID();
         showListStudent();
+        tbStudent.setAutoCreateRowSorter(true);
     }
 
     public StudentForm(Employee e) {

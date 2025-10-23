@@ -68,7 +68,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
         readOutOfDate();
         setStatistics();
         setSTT();
-
+        tableRegisterBook.setAutoCreateRowSorter(true);
     }
 
     public HomeRegisterBookForm(Employee e) {
@@ -883,6 +883,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                         listRb.remove(edit);
                         tableModelRb.removeRow(edit);
                         JOptionPane.showMessageDialog(this, "xóa sinh viên thành công");
+                        showListRb();
                     }
 
                 } else {
@@ -1011,10 +1012,8 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                     df.format(e.getPayDate()), e.getGiveBookBack()};
                 tableModelRb.addRow(row);
             }
-
-            tableModelRb.fireTableDataChanged();
-
         }
+        tableModelRb.fireTableDataChanged();
     }
 
     private void addtableModelRb(RegisterBook e) {
@@ -1068,16 +1067,14 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                 df.format(e.getBorrowDate()),
                 dfAppoint.format(e.getAppointDate()), "", e.getGiveBookBack()};
             tableModelRb.insertRow(edit, row);
-            tableModelRb.fireTableDataChanged();
 
         } else {
             Object[] row = new Object[]{stt++, e.getStudentId(), e.getBookId(), e.getAmountBook(),
                 df.format(e.getBorrowDate()), dfAppoint.format(e.getAppointDate()),
                 df.format(e.getPayDate()), e.getGiveBookBack()};
             tableModelRb.insertRow(edit, row);
-            tableModelRb.fireTableDataChanged();
-
         }
+        tableModelRb.fireTableDataChanged();
 
     }
 
@@ -1128,9 +1125,8 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                 Object[] row = new Object[]{sttOOP++, e.getStudentId(), e.getFullName(), e.getBookId(),
                     e.getNameBook(), e.getAmount(), e.getCountDate(), e.getGiveBackBook()};
                 tableModelOOD.addRow(row);
-                tableModelOOD.fireTableDataChanged();
-
             }
+            tableModelRb.fireTableDataChanged();
 
         } else {
             JOptionPane.showMessageDialog(this, "không có sinh viên nào trả sách muộn!");
@@ -1155,10 +1151,8 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
                     df.format(e.getPayDate()), e.getGiveBookBack()};
                 tableModelRb.addRow(row);
             }
-
-            tableModelRb.fireTableDataChanged();
-
         }
+        tableModelRb.fireTableDataChanged();
 
     }
 
@@ -1231,6 +1225,7 @@ public class HomeRegisterBookForm extends javax.swing.JFrame {
             }
 
         }
+        tableModelRb.fireTableDataChanged();
     }
 
     private void setSTT() {

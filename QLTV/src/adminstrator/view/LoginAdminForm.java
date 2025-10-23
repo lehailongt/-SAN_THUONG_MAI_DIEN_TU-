@@ -57,11 +57,6 @@ public class LoginAdminForm extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 275, -1, -1));
 
         txtadmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtadmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtadminActionPerformed(evt);
-            }
-        });
         getContentPane().add(txtadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 360, 40));
 
         txtpasswd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -149,10 +144,6 @@ public class LoginAdminForm extends javax.swing.JFrame {
         AdminRegisterForm arf = new AdminRegisterForm(this, true);
         arf.setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void txtadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtadminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtadminActionPerformed
 
     /**
      * @param args the command line arguments

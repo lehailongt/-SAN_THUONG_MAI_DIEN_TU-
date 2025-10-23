@@ -50,7 +50,7 @@ public class InForStudentRegister extends javax.swing.JFrame {
         readList();
         readTableModelBook(listBook);
         readTableModelRB();
-
+        tableBook.setAutoCreateRowSorter(true);
     }
 
     public InForStudentRegister() {
